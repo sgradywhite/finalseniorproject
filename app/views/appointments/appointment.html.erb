@@ -1,0 +1,44 @@
+<h1>Find your Appointment!</h1>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Users ID</th>
+          <th>Date</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Specialty</th>
+          <th>Status</th>
+         
+         
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @appointments.each do |u| %>
+          <tr>
+            <td><%= u.id %></td>
+            <td><%= u.users_id %></td>
+            <td><%= u.date.strftime("%Y-%m-%d - %H-%M") %></td>
+            <td><%= u.firstname %></td>
+            <td><%= u.lastname %></td>
+            <td><%= u.specialty %></td>
+            <td><%= u.status %></td>
+        
+            
+            <td><%= link_to 'Show', u, class: 'btn btn-mini' %></td>
+            <td><%= link_to 'Edit', edit_appointment_path(u), class: 'btn btn-mini btn-success' %></td>
+            <td><%= link_to 'Destroy', u, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>

@@ -1,0 +1,47 @@
+<div style = "margin-left: 100px; margin-right:100px;" >
+    
+    <h1>Check appointments from patients</h1>
+    
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Users ID</th>
+              <th>Date</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Specialty</th>
+              <th>Status</th>
+             
+             
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @appointments.each do |appointment| %>
+              <tr>
+                <td><%= appointment.id %></td>
+                <td><%= appointment.users_id %></td>
+                <td><%= appointment.date.strftime("%Y-%m-%d - %H-%M") %></td>
+                <td><%= appointment.firstname %></td>
+                <td><%= appointment.lastname %></td>
+                <td><%= appointment.specialty %></td>
+                <td><%= appointment.status %></td>
+            
+                
+                <td><%= link_to 'Show', appointment, class: 'btn btn-mini' %></td>
+                <td><%= link_to 'Edit', edit_appointment_path(appointment), class: 'btn btn-mini btn-success' %></td>
+                <td><%= link_to 'Destroy', appointment, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br>
+</div>    

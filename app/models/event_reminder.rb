@@ -1,0 +1,3 @@
+class EventReminder < ApplicationRecord
+
+end

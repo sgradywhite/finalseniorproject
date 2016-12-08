@@ -1,0 +1,51 @@
+
+<header class="navbar navbar-fixed-top navbar-inverse">
+
+
+
+  <div class="container">
+
+    <%= link_to("Bridgeport Medical Center" , root_path , id: "logo" , method: :get) %>
+
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if logged_in? %>
+
+
+
+          <li><%= link_to "Users", users_path %></li>
+
+          <li class="dropdown3">
+            <a class="dropdown3toggle" data-toggle="dropdown3">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown3-content3" >
+
+                <% if current_user.role == "admin" %>
+                  <%= link_to "Profile" , (admin_page_url(current_user)) , class: 'link-to-text-color' %>
+                <% elsif current_user.role == "doctor" %>
+                  <%= link_to "Profile", (doctor_page_url(current_user)) , class: 'link-to-text-color' %>
+                <% elsif current_user.role == "office" %>
+                   <%= link_to "Profile", (office_page_url(current_user)) , class: 'link-to-text-color' %>
+                <% elsif current_user.role == "patient" %>
+                  <%= link_to "Profile",  (patient_page_url(current_user)) , class: 'link-to-text-color'%>
+                <% end %>
+                <p></p>
+                <%= link_to "Settings", edit_user_path(current_user), class: 'link-to-text-color' %>
+                <hr style: "color: black;">  </hr>
+
+                <%= link_to "Log out" , logout_path ,  method: "delete", class: 'link-to-text-color' %>
+
+            </ul>
+          </li>
+        <% else %>
+        <li><%= link_to("Home", root_path, method: :get) %></li>
+        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Log in", login_path %></li>
+
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

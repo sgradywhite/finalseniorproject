@@ -1,0 +1,54 @@
+<div style = "margin-left: 100px; margin-right:100px; margin-top: 100px;" >
+  <style>
+    .movemetotheright{
+      margin-left: 100px;
+    }
+  </style>
+    <p id="notice"><%= notice %></p>
+    
+    <p>
+      <strong>ID:</strong>
+      <%= @appointment.id %>
+    </p>
+    
+    <p>
+      <strong>Users ID:</strong>
+      <%= @appointment.users_id %>
+    </p>
+    
+    <p>
+      <strong>Date:</strong>
+      <%= @appointment.date %>
+    </p>
+    
+    <p>
+      <strong>First Name:</strong>
+      <%= @appointment.firstname %>
+    </p>
+    
+    <p>
+      <strong>Last Name:</strong>
+      <%= @appointment.lastname %>
+    </p>
+    
+    <p>
+      <strong>Specialty:</strong>
+      <%= @appointment.specialty %>
+    </p>
+    
+    <p>
+      <strong>Status:</strong>
+      <%= @appointment.status %>
+    </p>
+    
+    
+    
+    
+    <% if current_user.role == "patient" %>
+    <% elsif current_user.role == "office" %>
+    
+        <%= link_to 'Edit', edit_appointment_path(@appointment) %> | 
+        <%= link_to 'Back', appointments_path %>
+    
+    <% end %>
+</div>    

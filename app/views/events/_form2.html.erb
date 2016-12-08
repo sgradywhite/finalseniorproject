@@ -1,0 +1,19 @@
+<%= simple_form_for @event, remote: true do |f| %>
+
+  <div>
+    <%= @event.title %>
+    <%= f.select :status, %w(Confirm) %>
+  </div>
+<p>Confirm this Event for your Reminder</p>
+
+    <%= f.submit  "Confirm" %>
+
+
+    <%= link_to 'Delete',
+                event,
+                method: :delete,
+                class: 'btn btn-danger',
+                data: { confirm: 'Are you sure?' },
+                remote: true unless @event.new_record? %>
+
+<% end %>

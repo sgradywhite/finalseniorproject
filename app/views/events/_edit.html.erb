@@ -1,0 +1,30 @@
+<% if current_user.role == "office" %>
+    <div class="modal fade" id="edit_event">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Edit Event</h4>
+          </div>
+          <div class="modal-body">
+            <%= render 'form', event: @event %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% elsif current_user.role == "patient" %>
+
+<div class="modal fade" id="edit_event">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Reminder Event</h4>
+          </div>
+          <div class="modal-body">
+            <%= render 'form2', event: @event %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
