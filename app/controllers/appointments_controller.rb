@@ -53,7 +53,7 @@ class AppointmentsController < ApplicationController
                     for i in  0..100 do
                         if @appointment.users_id == i
                           AppointmentMailer.confirm_appointment(User.find(i), @appointment.created_at, @appointment.status).deliver_now
-                          Event.create(:users_id => current_user.id, :title => "Your have appointment with: " +  @appointment.firstname + " " +  @appointment.lastname, :start => @appointment.date, :end => @appointment.date+30.minutes, :color => "green") 
+                          Event.create(:users_id => @appointment.users_id, :title => "Your have appointment with: " +  @appointment.firstname + " " +  @appointment.lastname, :start => @appointment.date, :end => @appointment.date+30.minutes, :color => "green") 
                         else
 
                         end
